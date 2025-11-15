@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Go 53 Design System - Truepic-Inspired Professional Design */
+
+@layer base {
+  :root {
+    /* Core Background Colors */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    /* Professional Blue Primary (Truepic-Inspired) */
+    --primary: 213 94% 68%; /* #4285F4 - Professional Blue */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 11% 96%; /* Light gray for secondary elements */
+    --secondary-foreground: 222 47% 11%;
+    
+    --accent: 213 94% 68%; /* Same as primary for consistency */
+    --accent-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --success: 142 76% 36%; /* Professional green */
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%; /* Professional orange */
+    --warning-foreground: 0 0% 100%;
+    
+    --error: 0 84% 60%; /* Professional red */
+    --error-foreground: 0 0% 100%;
+
+    /* Card and UI Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --card-shadow: 220 13% 91%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Muted Colors */
+    --muted: 210 11% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Interactive Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 213 94% 68%;
+
+    /* Simplified Progress Colors */
+    --progress-bg: 210 11% 96%;
+    
+    /* Radius - Clean and minimal */
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Clean Professional Effects */
+@layer base {
+  :root {
+    /* Clean professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(213 94% 73%));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(210 11% 98%));
+    
+    /* Subtle shadows for depth */
+    --shadow-card: 0 1px 3px 0 hsl(220 13% 91% / 0.1), 0 1px 2px -1px hsl(220 13% 91% / 0.1);
+    --shadow-button: 0 1px 2px 0 hsl(var(--primary) / 0.05);
+    
+    /* Clean transitions */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom Animation Keyframes */
+@layer utilities {
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0.3) translateY(20px);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px hsl(var(--primary) / 0.1);
+    }
+  }
+  
+  @keyframes confetti {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-bounce-in {
+    animation: bounce-in 0.6s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  .animate-confetti {
+    animation: confetti 1s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+  
+  /* 3D Flip Card Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Clean Button Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-medium py-3 px-6 rounded-lg
+           hover:bg-primary/90 active:bg-primary/95
+           transition-colors duration-200 ease-out shadow-button;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border border-border text-foreground font-medium py-3 px-6 rounded-lg
+           hover:bg-muted/50 active:bg-muted
+           transition-colors duration-200 ease-out shadow-button;
+  }
+  
+  /* Clean Card Styles */
+  .professional-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-card
+           hover:shadow-lg transition-shadow duration-200 ease-out;
+  }
+  
+  /* Clean Navigation */
+  .nav-item {
+    @apply text-muted-foreground hover:text-foreground font-medium
+           transition-colors duration-200 ease-out cursor-pointer bg-transparent border-0;
+  }
+  
+  .nav-item-active {
+    @apply text-primary font-medium cursor-pointer bg-transparent border-0;
+  }
+}
