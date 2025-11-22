@@ -18,7 +18,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import iphoneMockup from "@/assets/iphone-real-dashboard.png";
+import iphoneMockup from "@/assets/iphone-app-screenshot.png";
 
 export default function Landing() {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -161,8 +161,8 @@ export default function Landing() {
             <img 
               src={iphoneMockup} 
               alt="GO53 Dashboard on iPhone" 
-              className="w-full max-w-2xl animate-float"
-            />
+              className="w-[120px] h-auto animate-float"
+              />
           </div>
         </div>
       </section>
