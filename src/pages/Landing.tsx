@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { signup, login } from "@/services/auth";
 import { 
   CheckCircle2, 
   Trophy, 
@@ -25,19 +26,32 @@ export default function Landing() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleSignIn = (e: React.FormEvent) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Demo sign in - just set localStorage flag
-    localStorage.setItem('go53_auth', 'true');
-    window.location.reload();
+    const email = (document.getElementById("signin-email") as HTMLInputElement).value;
+    const password = (document.getElementById("signin-password") as HTMLInputElement).value;
+  
+    try {
+      await login(email, password);
+      window.location.reload();
+    } catch (error: any) {
+      alert(error.message || "Failed to sign in");
+    }
   };
-
-  const handleSignUp = (e: React.FormEvent) => {
+  
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Demo sign up - just set localStorage flag
-    localStorage.setItem('go53_auth', 'true');
-    window.location.reload();
+    const email = (document.getElementById("signup-email") as HTMLInputElement).value;
+    const password = (document.getElementById("signup-password") as HTMLInputElement).value;
+  
+    try {
+      await signup(email, password);
+      window.location.reload();
+    } catch (error: any) {
+      alert(error.message || "Failed to sign up");
+    }
   };
+  
 
   const stats = [
     { label: "Success Rate", value: "94%", icon: Trophy },
@@ -463,3 +477,5 @@ export default function Landing() {
     </div>
   );
 }
+
+
